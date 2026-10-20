@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CelZone – Accesorios para tu celular</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f6f4;--card:#fff;--text:#16161a;--muted:#6b6b73;--line:#e4e4e0;--brand:#ffc107;--ink:#0b0b0d;color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f11;--card:#1a1a1e;--text:#f1f1f0;--muted:#a0a0a8;--line:#2c2c32;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0f11;--card:#1a1a1e;--text:#f1f1f0;--muted:#a0a0a8;--line:#2c2c32;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.promo{background:var(--brand);color:#000;text-align:center;font-size:.85rem;padding:8px 12px;font-weight:600}
+header{background:var(--ink);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.top{display:flex;align-items:center;gap:14px;padding:12px 0}
+.logo{font-weight:900;font-size:1.5rem;letter-spacing:-.5px}
+.logo span{color:var(--brand)}
+.search{flex:1;display:flex;min-width:0}
+.search input{flex:1;min-width:0;border:0;border-radius:8px 0 0 8px;padding:10px 12px;font:inherit}
+.search button{border:0;background:var(--brand);padding:0 16px;border-radius:0 8px 8px 0;font-weight:700}
+.hbtn{background:none;border:0;color:#fff;position:relative;font-size:.9rem;white-space:nowrap}
+.badge{position:absolute;top:-8px;right:-10px;background:var(--brand);color:#000;border-radius:99px;font-size:.7rem;font-weight:800;padding:1px 6px}
+nav{background:#17171b;border-top:1px solid #2a2a30}
+nav ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto}
+nav li{position:relative}
+nav li>a{display:block;padding:12px 16px;color:#eee;font-size:.92rem;white-space:nowrap}
+nav li:hover>a{color:var(--brand)}
+.drop{display:none;position:absolute;left:0;top:100%;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:0 0 10px 10px;min-width:190px;padding:8px;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.drop a{display:block;padding:7px 10px;border-radius:6px;font-size:.9rem}
+.drop a:hover{background:var(--brand);color:#000}
+@media (hover:hover) and (min-width:760px){nav li:hover .drop{display:block}}
+.hero{position:relative;overflow:hidden;border-radius:14px;margin:18px 0}
+.slides{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;padding:44px 40px;min-height:260px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#fff}
+.slide h2{font-size:clamp(1.5rem,4vw,2.6rem);margin:0 0 8px;line-height:1.1}
+.slide p{margin:0 0 18px;max-width:420px;opacity:.9}
+.slide .art{font-size:clamp(4rem,12vw,8rem)}
+.s1{background:linear-gradient(120deg,#0b0b0d,#3a2d00)}.s2{background:linear-gradient(120deg,#102a5c,#0b0b0d)}.s3{background:linear-gradient(120deg,#5c1020,#0b0b0d)}
+.cta{display:inline-block;background:var(--brand);color:#000;font-weight:800;padding:10px 20px;border-radius:8px;border:0}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:7px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.4);padding:0}
+.dots button.on{background:var(--brand)}
+.finder{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:28px}
+.finder h3{margin:0 0 12px}
+.finder .row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
+select{padding:11px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;min-width:0}
+.finder .cta{padding:11px 22px}
+h2.sec{font-size:1.4rem;margin:30px 0 12px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 16px;border-radius:99px;white-space:nowrap}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#000;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.14)}
+.thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,#fff3c4,#ffe082)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thumb{background:linear-gradient(135deg,#3a3010,#26220f)}}
+.info{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.name{font-size:.92rem;font-weight:600;flex:1}
+.price{font-size:1.15rem;font-weight:800}
+.add{border:0;background:var(--ink);color:#fff;padding:9px;border-radius:8px;font-weight:700}
+.add:hover{background:var(--brand);color:#000}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cats button{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:18px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:600}
+.cats button span{font-size:2rem}
+.cats button:hover{border-color:var(--brand)}
+.news{background:var(--ink);color:#fff;border-radius:14px;padding:32px 20px;margin:36px 0;text-align:center}
+.news form{display:flex;gap:8px;max-width:460px;margin:14px auto 0}
+.news input{flex:1;min-width:0;padding:11px;border-radius:8px;border:0;font:inherit}
+footer{background:var(--ink);color:#bbb;padding:34px 0 20px;font-size:.9rem}
+.fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px}
+footer h4{color:#fff;margin:0 0 10px}
+footer a{display:block;padding:3px 0}
+footer a:hover{color:var(--brand)}
+.copy{border-top:1px solid #2a2a30;margin-top:24px;padding-top:14px;text-align:center}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 6px 16px rgba(0,0,0,.3);z-index:40}
+.shade{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.shade.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--card);z-index:60;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.dh button{background:none;border:0;color:var(--text);font-size:1.4rem}
+.items{flex:1;overflow-y:auto;padding:8px 16px}
+.item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.item .e{font-size:1.8rem}
+.item .t{flex:1;font-size:.88rem}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text)}
+.df{padding:16px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem;margin-bottom:10px}
+.df .cta{width:100%;text-align:center}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;opacity:0;transition:.3s;z-index:70;font-size:.9rem}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:640px){.top{flex-wrap:wrap}.search{order:3;flex-basis:100%}.slide{padding:28px 20px}.slide .art{display:none}.finder .row{grid-template-columns:1fr}.hbtn .lbl{display:none}}
+</style>
+</head>
+<body>
+<div class="promo">🎁 Promo 4×2: llévate 4 y paga solo 2 en cases seleccionados · Envíos a todo el Perú</div>
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#">Cel<span>Zone</span></a>
+    <form class="search" id="sf"><input id="q" placeholder="Busca cases, protectores, cargadores…" aria-label="Buscar"><button>Buscar</button></form>
+    <button class="hbtn" onclick="toast('Inicia sesión próximamente')">👤 <span class="lbl">Mi cuenta</span></button>
+    <button class="hbtn" id="cartBtn">🛒 <span class="lbl">Carrito</span><span class="badge" id="count">0</span></button>
+  </div>
+  <nav><div class="wrap"><ul id="nav"></ul></div></nav>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-label="Ofertas">
+    <div class="slides" id="slides">
+      <div class="slide s1"><div><h2>20 años equipando tu celular</h2><p>Cases, protectores y accesorios para todas las marcas.</p><a class="cta" href="#productos">Ver productos</a></div><div class="art">📱</div></div>
+      <div class="slide s2"><div><h2>Audio que se escucha</h2><p>Audífonos TWS, parlantes y más con Bluetooth 5.3.</p><button class="cta" onclick="pick('Audio')">Ver audio</button></div><div class="art">🎧</div></div>
+      <div class="slide s3"><div><h2>Liquidación de temporada</h2><p>Protectores Hybrid Glass desde S/ 99.</p><button class="cta" onclick="pick('Protectores')">Aprovechar</button></div><div class="art">🛡️</div></div>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section class="finder">
+    <h3>Encuentra el accesorio para tu celular</h3>
+    <div class="row">
+      <select id="brand" aria-label="Marca"><option value="">Seleccionar la marca</option></select>
+      <select id="model" aria-label="Modelo" disabled><option value="">Seleccionar modelo</option></select>
+      <button class="cta" id="go">Buscar</button>
+    </div>
+  </section>
+
+  <h2 class="sec">Compra por categoría</h2>
+  <div class="cats" id="cats"></div>
+
+  <h2 class="sec" id="productos">Productos destacados</h2>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+
+  <section class="news">
+    <h2 style="margin:0">Recibe ofertas y beneficios por correo</h2>
+    <p style="margin:6px 0 0;opacity:.8">Suscríbete y entérate primero de las promociones.</p>
+    <form id="nf"><input type="email" required placeholder="tucorreo@ejemplo.com" aria-label="Correo"><button class="cta">Suscribirme</button></form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>Atención al cliente</h4><a href="#">Preguntas frecuentes</a><a href="#">¿Cómo comprar?</a><a href="#">Métodos de pago</a><a href="#">Términos y condiciones</a></div>
+      <div><h4>Sobre nosotros</h4><a href="#">Nosotros</a><a href="#">Nuestras tiendas</a><a href="#">Contacto</a><a href="#">Libro de reclamaciones</a></div>
+      <div><h4>Mi cuenta</h4><a href="#">Mis datos</a><a href="#">Mis pedidos</a><a href="#">Mis direcciones</a></div>
+      <div><h4>Síguenos</h4><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">WhatsApp</a></div>
+    </div>
+    <div class="copy">© 2026 CelZone · Proyecto educativo de diseño web, todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="wa" href="#" onclick="toast('Aquí iría tu enlace de WhatsApp');return false" aria-label="WhatsApp">💬</a>
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito">
+  <div class="dh"><strong>Tu carrito</strong><button id="close" aria-label="Cerrar">✕</button></div>
+  <div class="items" id="items"></div>
+  <div class="df"><div class="tot"><span>Total</span><span id="total">S/ 0.00</span></div><button class="cta" id="buy">Finalizar por WhatsApp</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+const MENU={
+ "Cases":["Samsung","iPhone","Xiaomi","Motorola","Huawei","Honor","Oppo"],
+ "Protectores":["Samsung","iPhone","Xiaomi","Motorola","Huawei","Honor"],
+ "Flip cover":["Samsung","iPhone","Huawei","LG","Sony"],
+ "Audio":["Audífonos","Parlantes","Hands Free"],
+ "Energía y datos":["Cargadores","Baterías","Cables de datos"],
+ "Otros":["Soportes","Aro de luz","Gaming","Waterproof"]
+};
+const MODELS={Samsung:["Galaxy S23","Galaxy A52","Galaxy A31","Galaxy M51"],iPhone:["iPhone 11","iPhone 13","iPhone 14 Pro","iPhone 17"],Xiaomi:["Redmi Note 13 Pro","Redmi 9T","Poco M3 Pro"],Motorola:["Moto G54","Moto G22","Moto G9 Play"],Huawei:["P40 Pro","Nova 8i","Y8S"],Honor:["Honor 90","Honor X8B","Magic 6 Lite"],Oppo:["Oppo A16","Oppo A54"]};
+const ICON={"Cases":"📱","Protectores":"🛡️","Flip cover":"📒","Audio":"🎧","Energía y datos":"🔌","Otros":"💍"};
+const P=[
+["Case Strong Galaxy A01 Core Negro","Cases",55],["Case Soft Edge iPhone 11 Negro","Cases",59],["Case Diva iPhone 13 Lavanda","Cases",59],["Case Shine MagSafe iPhone 14 Pro Max","Cases",89],
+["Hybrid Glass Clear Galaxy S23","Protectores",99],["Hybrid Glass Privacidad iPhone 14","Protectores",119],["Hybrid Glass borde negro Galaxy S20","Protectores",99],
+["Flip Cover Casual View iPhone 11 Pro","Flip cover",59],["Flip Cover Detachable Line Galaxy A31","Flip cover",69],["Flip Cover Skin Galaxy A51","Flip cover",59],
+["Audífonos Superbass Z40","Audio",59],["Audífonos TWS Bluetooth 5.3 Earpods Pro","Audio",139],["Parlante Bluetooth Waterproof Boom","Audio",159],["Audífonos Bluetooth Magnet Sports","Audio",195],
+["Cargador Double Charger 2.4A","Energía y datos",45],["Cargador de auto Quick Charge 2 USB","Energía y datos",59],["Batería externa Refuel Max 10 000 mAh","Energía y datos",99],["Cable de datos Forte iOS 1.8 m","Energía y datos",59],
+["Aro de luz Selfie Ring","Otros",39],["Gamepad Bluetooth Gaming Z4","Otros",129],["Protector universal Waterproof Case","Otros",29]
+].map((p,i)=>({id:i,name:p[0],cat:p[1],price:p[2]}));
+const $=s=>document.querySelector(s);
+let cart={},cat="Todos",term="";
+/* menú */
+$("#nav").innerHTML=Object.entries(MENU).map(([c,s])=>`<li><a href="#productos" data-c="${c}">${c}</a><div class="drop">${s.map(x=>`<a href="#productos" data-c="${c}">${x}</a>`).join("")}</div></li>`).join("");
+$("#nav").addEventListener("click",e=>{const a=e.target.closest("a[data-c]");if(a)pick(a.dataset.c)});
+$("#cats").innerHTML=Object.keys(MENU).map(c=>`<button data-c="${c}"><span>${ICON[c]}</span>${c}</button>`).join("");
+$("#cats").addEventListener("click",e=>{const b=e.target.closest("button");if(b){pick(b.dataset.c);$("#productos").scrollIntoView()}});
+/* productos */
+function pick(c){cat=c;term="";$("#q").value="";render()}
+function render(){
+ $("#tabs").innerHTML=["Todos",...Object.keys(MENU)].map(c=>`<button class="tab ${c===cat?"on":""}" data-c="${c}">${c}</button>`).join("");
+ const list=P.filter(p=>(cat==="Todos"||p.cat===cat)&&p.name.toLowerCase().includes(term));
+ $("#grid").innerHTML=list.length?list.map(p=>`<article class="card"><div class="thumb">${ICON[p.cat]}</div><div class="info"><div class="cat">${p.cat}</div><div class="name">${p.name}</div><div class="price">S/ ${p.price.toFixed(2)}</div><button class="add" data-id="${p.id}">Agregar al carrito</button></div></article>`).join(""):`<p class="empty">No encontramos productos.</p>`;
+}
+$("#tabs").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)pick(t.dataset.c)});
+$("#grid").addEventListener("click",e=>{const b=e.target.closest(".add");if(b){add(+b.dataset.id)}});
+$("#sf").addEventListener("submit",e=>{e.preventDefault();term=$("#q").value.trim().toLowerCase();cat="Todos";render();$("#productos").scrollIntoView()});
+/* buscador por marca/modelo */
+$("#brand").innerHTML+=Object.keys(MODELS).map(b=>`<option>${b}</option>`).join("");
+$("#brand").onchange=e=>{const m=MODELS[e.target.value]||[];$("#model").disabled=!m.length;$("#model").innerHTML=`<option value="">Seleccionar modelo</option>`+m.map(x=>`<option>${x}</option>`).join("")};
+$("#go").onclick=()=>{const v=$("#model").value||$("#brand").value;if(!v)return toast("Elige una marca primero");term=v.toLowerCase().split(" ").pop();cat="Todos";render();$("#productos").scrollIntoView();toast("Mostrando accesorios para "+v)};
+/* carrito */
+function add(id){cart[id]=(cart[id]||0)+1;upd();toast("Agregado al carrito ✓")}
+function upd(){
+ const ids=Object.keys(cart);let tot=0,n=0;
+ $("#items").innerHTML=ids.length?ids.map(i=>{const p=P[i],q=cart[i];tot+=p.price*q;n+=q;return `<div class="item"><div class="e">${ICON[p.cat]}</div><div class="t">${p.name}<br><strong>S/ ${(p.price*q).toFixed(2)}</strong></div><div class="qty"><button data-d="-1" data-i="${i}">−</button>${q}<button data-d="1" data-i="${i}">+</button></div></div>`}).join(""):`<p class="empty">Tu carrito está vacío 🛒</p>`;
+ $("#total").textContent="S/ "+tot.toFixed(2);$("#count").textContent=n;
+}
+$("#items").addEventListener("click",e=>{const b=e.target.closest("button[data-d]");if(!b)return;const i=b.dataset.i;cart[i]+=+b.dataset.d;if(cart[i]<=0)delete cart[i];upd()});
+const open=o=>{$("#drawer").classList.toggle("on",o);$("#shade").classList.toggle("on",o)};
+$("#cartBtn").onclick=()=>open(true);$("#close").onclick=$("#shade").onclick=()=>open(false);
+$("#buy").onclick=()=>{if(!Object.keys(cart).length)return toast("Agrega productos primero");toast("Aquí conectarías el pedido a WhatsApp")};
+/* carrusel */
+let cur=0;const N=3;
+$("#dots").innerHTML=[...Array(N)].map((_,i)=>`<button aria-label="Slide ${i+1}" data-i="${i}"></button>`).join("");
+function go(i){cur=(i+N)%N;$("#slides").style.transform=`translateX(-${cur*100}%)`;[...$("#dots").children].forEach((d,k)=>d.classList.toggle("on",k===cur))}
+$("#dots").onclick=e=>{const b=e.target.closest("button");if(b)go(+b.dataset.i)};
+setInterval(()=>go(cur+1),5000);go(0);
+/* utilidades */
+$("#nf").onsubmit=e=>{e.preventDefault();e.target.reset();toast("¡Gracias por suscribirte!")};
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2200)}
+render();upd();
+</script>
+</body>
+</html>
